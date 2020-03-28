@@ -1,0 +1,58 @@
+{
+    "layer": "bottom",
+	"height": 24,
+    "modules-left": ["sway/workspaces", "sway/mode", "custom/new-ws"],
+    "modules-center": [],
+    "modules-right": [
+		"network",
+		"battery",
+		"clock",
+		"custom/keyboard",
+		"custom/run"
+	],
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "clock": {
+		"format": "{:%I:%M %p}",
+        "tooltip-format": "{:%Y-%m-%d | %H:%M}",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "",
+        "format-alt": "{essid}: {ipaddr}"
+    },
+	"custom/new-ws": {
+		"format": "+",
+		"on-click": "swaymsg -- workspace next_on_output --create"
+	},
+	"custom/keyboard": {
+		"format": "▼",
+		"on-click": "toggle-virtboard"
+	},
+	"custom/rotate": {
+		"format": "🌀"
+	},
+	"custom/run": {
+		"format": "",
+		"on-click": "ensure-virtboard; dmenu_path | dmenu -p 'Run:' -l 10 | xargs swaymsg exec"
+	}
+}

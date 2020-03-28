@@ -1,0 +1,166 @@
+# modifier
+set $mod Mod4
+
+# font for window titles
+font xft:Source Code Pro 11
+
+# hide title bars
+default_border pixel 1
+
+# use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec alacritty
+
+# disable urgency
+focus_on_window_activation none
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start dmenu
+bindsym $mod+d exec dmenu_run
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# move workspace to different screen
+bindsym $mod+u exec swaymsg move workspace to output left
+bindsym $mod+p exec swaymsg move workspace to output right
+bindsym $mod+o exec swaymsg move workspace to output up 
+bindsym $mod+i exec swaymsg move workspace to output down 
+
+# split in horizontal orientation
+bindsym $mod+g split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+
+# labels
+set $label1 browser
+set $label2 chat
+set $label3 email
+set $label4 notes
+set $label5 misc
+set $label6 burp
+set $label7 programming
+set $label8 misc
+set $label9 misc
+set $label10 misc
+
+# switch to workspace
+bindsym $mod+1 workspace 1: $label1
+bindsym $mod+2 workspace 2: $label2
+bindsym $mod+3 workspace 3: $label3
+bindsym $mod+4 workspace 4: $label4
+bindsym $mod+5 workspace 5: $label5
+bindsym $mod+6 workspace 6: $label6
+bindsym $mod+7 workspace 7: $label7
+bindsym $mod+8 workspace 8: $label8
+bindsym $mod+9 workspace 9: $label9
+bindsym $mod+0 workspace 10: $label10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1: $label1
+bindsym $mod+Shift+2 move container to workspace 2: $label2
+bindsym $mod+Shift+3 move container to workspace 3: $label3
+bindsym $mod+Shift+4 move container to workspace 4: $label4
+bindsym $mod+Shift+5 move container to workspace 5: $label5
+bindsym $mod+Shift+6 move container to workspace 6: $label6
+bindsym $mod+Shift+7 move container to workspace 7: $label7
+bindsym $mod+Shift+8 move container to workspace 8: $label8
+bindsym $mod+Shift+9 move container to workspace 9: $label9
+bindsym $mod+Shift+0 move container to workspace 10: $label10
+
+# reload the configuration file
+bindsym $mod+Shift+r reload
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # these bindings trigger as soon as you enter the resize mode
+        bindsym l resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym h resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+workspace 1 output primary 
+workspace 2 output primary 
+workspace 3 output primary 
+workspace 4 output primary
+workspace 5 output primary 
+workspace 6 output secondary 
+workspace 7 output secondary 
+workspace 8 output secondary
+workspace 9 output secondary 
+workspace 10 output secondary 
+
+# move current workspace between monitors
+bindsym $mod+Control+h move workspace to output left
+bindsym $mod+Control+j move workspace to output down
+bindsym $mod+Control+k move workspace to output up
+bindsym $mod+Control+l move workspace to output right
+
+# scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+# backlight + audio controls
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86MonBrightnessUp exec light -A 10
+bindsym XF86MonBrightnessDown exec light -U 10
+
+# screenshotting
+bindsym Print exec grim ~/pictures/screenshots/$(date +%s)-full.png
+bindsym $mod+c exec grim -g "$(slurp)" ~/pictures/screenshots/$(date +%s)-select.png
+bindsym $mod+z exec grim -g "$(slurp)" - | wl-copy
+
+# swaylock + swayidle
+bindsym $mod+x exec swaylock -c 000000
+exec swayidle -w before-sleep 'swaylock -f -c 000000'
+
+# keyboard modifications
+input 1:1:AT_Translated_Set_2_keyboard {
+   xkb_options caps:swapescape
+}
+
+input 6127:24647:Lenovo_ThinkPad_Compact_USB_Keyboard_with_TrackPoint {
+   xkb_options caps:swapescape
+}
+
+
+bar {
+        swaybar_command waybar
+}
