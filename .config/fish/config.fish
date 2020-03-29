@@ -3,7 +3,7 @@
 set fish_greeting
 
 set -gx EDITOR vim
-set -gx PATH ~/bin/(uname -n) ~/bin ~/.local/bin /usr/local/bin /usr/bin /bin /sbin /usr/sbin
+set -gx PATH ~/bin/(uname -n) ~/bin ~/go/bin/ ~/.local/bin /usr/local/bin /usr/bin /bin /sbin /usr/sbin
 set -gx _JAVA_OPTIONS -Dswing.aatext=TRUE -Dawt.useSystemAAFontSettings=lcd
 set -gx _JAVA_AWT_WM_NONREPARENTING 1
 set -gx TERM xterm-256color
