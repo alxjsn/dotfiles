@@ -160,7 +160,6 @@ input 6127:24647:Lenovo_ThinkPad_Compact_USB_Keyboard_with_TrackPoint {
    xkb_options caps:swapescape
 }
 
-
 bar {
-        swaybar_command waybar
+    swaybar_command waybar
 }
