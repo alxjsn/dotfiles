@@ -19,8 +19,8 @@ focus_on_window_activation none
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu
-bindsym $mod+d exec dmenu_run
+# start bemenu
+bindsym $mod+d exec bemenu-run
 
 # change focus
 bindsym $mod+h focus left
