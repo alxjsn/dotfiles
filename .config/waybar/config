@@ -6,17 +6,13 @@
     "modules-right": [
 		"network",
 		"battery",
-		"clock",
-		"custom/keyboard",
-		"custom/run"
+		"clock"
 	],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
     "clock": {
-		"format": "{:%I:%M %p}",
-        "tooltip-format": "{:%Y-%m-%d | %H:%M}",
-        "format-alt": "{:%Y-%m-%d}"
+		"format": "{:%H:%M | %m-%d-%Y}"
     },
     "battery": {
         "states": {
@@ -43,16 +39,5 @@
 	"custom/new-ws": {
 		"format": "+",
 		"on-click": "swaymsg -- workspace next_on_output --create"
-	},
-	"custom/keyboard": {
-		"format": "▼",
-		"on-click": "toggle-virtboard"
-	},
-	"custom/rotate": {
-		"format": "🌀"
-	},
-	"custom/run": {
-		"format": "",
-		"on-click": "ensure-virtboard; dmenu_path | dmenu -p 'Run:' -l 10 | xargs swaymsg exec"
 	}
 }
