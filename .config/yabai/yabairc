@@ -24,12 +24,14 @@ yabai -m config window_gap                   5
 yabai -m rule --add app='^System Preferences$' manage=off layer=above grid=4:4:1:1:2:2
 yabai -m rule --add app='^Ghidra$' manage=off layer=normal
 yabai -m rule --add app='^Mail$' manage=off layer=above grid=4:4:1:1:2:2
+yabai -m rule --add app='^Calendar$' manage=off layer=above grid=4:4:1:1:2:2
 yabai -m rule --add app='^Calculator$' manage=off layer=above grid=4:4:1:1:2:2
 yabai -m rule --add app='^Keychain Access$' manage=off layer=above grid=4:4:1:1:2:2
 yabai -m rule --add app='^Finder$' manage=off layer=above grid=4:4:1:1:2:2
 yabai -m rule --add app='^Preview$' manage=off layer=above grid=4:4:1:1:2:2
 yabai -m rule --add app='^Activity Monitor$' manage=off layer=above grid=4:4:1:1:2:2
 yabai -m rule --add app='^Mail$' title='^Inbox' manage=on
+yabai -m rule --add app='^Cisco Jabber$' manage=on
 yabai -m rule --add title='Preferences$' manage=off layer=above grid=4:4:1:1:2:2
 yabai -m rule --add title='^$' manage=off
 
