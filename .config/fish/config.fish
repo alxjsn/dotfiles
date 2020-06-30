@@ -17,3 +17,5 @@ alias scp="scp -F ~/.ssh/config"
 alias rg="rg --no-ignore"
 alias jq="jq -C"
 alias less="less -R"
+
+source ~/.config/fish/(uname -n).fish
