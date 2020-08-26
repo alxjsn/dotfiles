@@ -12,10 +12,12 @@ set -x GPG_TTY tty
 
 alias pass="gopass"
 alias feh="feh  --sort filename --borderless --auto-zoom --scale-down --auto-rotate --image-bg black --draw-filename"
-alias d="dnote"
 alias scp="scp -F ~/.ssh/config"
 alias rg="rg --no-ignore"
 alias jq="jq -C"
 alias less="less -R"
 
-source ~/.config/fish/(uname -n).fish
+# Source fish config based on hostnames
+if test -e ~/.config/fish/(uname -n).fish
+    source ~/.config/fish/(uname -n).fish
+end
