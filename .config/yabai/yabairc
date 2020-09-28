@@ -40,7 +40,7 @@ yabai -m config window_gap                   0
 
 # custom rules
 yabai -m rule --add app='^System Preferences$' manage=off layer=above grid=4:4:1:1:2:2
-yabai -m rule --add app='^Ghidra$' manage=off layer=normal
+yabai -m rule --add app='^Ghidra$' manage=off layer=above
 yabai -m rule --add app='^Calculator$' manage=off layer=above grid=4:4:1:1:2:2
 yabai -m rule --add app='^Keychain Access$' manage=off layer=above grid=4:4:1:1:2:2
 yabai -m rule --add app='^Finder$' manage=off layer=above grid=4:4:1:1:2:2
