@@ -16,6 +16,7 @@ alias scp="scp -F ~/.ssh/config"
 alias rg="rg --no-ignore"
 alias jq="jq -C"
 alias less="less -R"
+alias ffuf='ffuf -c -ac -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4095.0 Safari/537.36"'
 
 # Source fish config based on hostnames
 if test -e ~/.config/fish/(uname -n).fish
