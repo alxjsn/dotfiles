@@ -121,6 +121,8 @@ bindsym $mod+r mode "resize"
 set $primary DP-3
 set $secondary DP-4
 
+output $primary pos 0 0
+
 workspace 1: $label1 output $primary 
 workspace 2: $label2 output $primary 
 workspace 3: $label3 output $primary 
