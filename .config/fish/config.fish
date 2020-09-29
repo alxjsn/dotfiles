@@ -8,6 +8,7 @@ set -gx GOPATH $HOME/go
 set -gx _JAVA_OPTIONS -Dswing.aatext=TRUE -Dawt.useSystemAAFontSettings=lcd
 set -gx TERM xterm-256color
 set -x GPG_TTY tty
+set -x GO111MODULE on
 
 alias pass="gopass"
 alias feh="feh  --sort filename --borderless --auto-zoom --scale-down --auto-rotate --image-bg black --draw-filename"
