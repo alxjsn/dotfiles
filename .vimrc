@@ -22,4 +22,4 @@ set tabstop=4
 map <leader>ss :setlocal spell!<cr>
 
 " other
-set mouse-=a
+set mouse=r
