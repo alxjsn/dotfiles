@@ -19,8 +19,10 @@ alias jq="jq -C"
 alias less="less -R"
 alias ffuf='ffuf -c -ac -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4095.0 Safari/537.36"'
 
-# Paths
+# Configure PATH
 set -gx PATH ~/bin/(uname -n) ~/bin ~/go/bin ~/.local/bin /usr/local/bin /usr/bin /bin /sbin /usr/sbin
+
+# Add Ruby user dir to PATH
 if which ruby >/dev/null && which gem >/dev/null
     set -gx PATH (ruby -r rubygems -e 'puts Gem.user_dir')/bin $PATH
 end
@@ -28,4 +30,11 @@ end
 # Source fish config based on hostnames
 if test -e ~/.config/fish/(uname -n).fish
     source ~/.config/fish/(uname -n).fish
+end
+
+# Enable fzf key bindings
+if type -q fzf
+    function fish_user_key_bindings
+        fzf_key_bindings
+    end
 end
