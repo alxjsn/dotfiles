@@ -11,7 +11,6 @@ set -x GPG_TTY tty
 set -gx _JAVA_OPTIONS -Dswing.aatext=TRUE -Dawt.useSystemAAFontSettings=lcd
 
 # Aliases
-alias pass="gopass"
 alias feh="feh  --sort filename --borderless --auto-zoom --scale-down --auto-rotate --image-bg black --draw-filename"
 alias scp="scp -F ~/.ssh/config"
 alias rg="rg --no-ignore"
@@ -23,7 +22,7 @@ alias ffuf='ffuf -c -ac -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWeb
 set -gx PATH ~/bin/(uname -n) ~/bin ~/go/bin ~/.local/bin /usr/local/bin /usr/bin /bin /sbin /usr/sbin
 
 # Add Ruby user dir to PATH
-if which ruby >/dev/null && which gem >/dev/null
+if which ruby &>/dev/null && which gem &>/dev/null
     set -gx PATH (ruby -r rubygems -e 'puts Gem.user_dir')/bin $PATH
 end
 
