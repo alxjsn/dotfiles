@@ -4,7 +4,7 @@ set fish_greeting
 
 # Application settings
 set -gx GOPATH $HOME/go
-set -x GO111MODULE on
+set -x GO111MODULE auto
 set -gx TERM xterm-256color
 set -gx EDITOR vim
 set -x GPG_TTY tty
