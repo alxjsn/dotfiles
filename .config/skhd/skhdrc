@@ -112,3 +112,9 @@ lctrl + alt - 4 : yabai -m space --display 4
 
 # Close current window
 shift + alt - q: yabai -m window --close
+
+# Control Spotify
+# > : next, < : prev, ? : play/pause
+alt - 0x2F : osascript -e 'tell application "Spotify" to next track'
+alt - 0x2B : osascript -e 'tell application "Spotify" to previous track'
+alt - 0x2C : osascript -e 'tell application "Spotify" to playpause'
