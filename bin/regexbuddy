@@ -1,3 +1,0 @@
-#!/bin/sh
-
-wine64 ~/.wine/drive_c/Program\ Files/Just\ Great\ Software/RegexBuddy\ 4/RegexBuddy4.exe
