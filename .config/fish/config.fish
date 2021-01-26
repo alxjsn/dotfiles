@@ -23,7 +23,7 @@ alias bcurl='curl --proxy http://127.0.0.1:8080 -k'
 set -gx PATH ~/bin/(uname -n) ~/bin ~/go/bin ~/.local/bin /usr/local/bin /usr/bin /bin /sbin /usr/sbin
 
 # Add Ruby user dir to PATH
-if which ruby 2>&1 && which gem 2>&1
+if which ruby >/dev/null && which gem >/dev/null
     set -gx PATH (ruby -r rubygems -e 'puts Gem.user_dir')/bin $PATH
 end
 
