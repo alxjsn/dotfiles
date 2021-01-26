@@ -23,3 +23,6 @@ map <leader>ss :setlocal spell!<cr>
 
 " other
 set mouse=r
+
+" yaml
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
