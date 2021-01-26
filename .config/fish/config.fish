@@ -17,6 +17,7 @@ alias rg="rg --no-ignore"
 alias jq="jq -C"
 alias less="less -R"
 alias ffuf='ffuf -c -ac -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4095.0 Safari/537.36"'
+alias bcurl='curl --proxy http://127.0.0.1:8080 -k'
 
 # Configure PATH
 set -gx PATH ~/bin/(uname -n) ~/bin ~/go/bin ~/.local/bin /usr/local/bin /usr/bin /bin /sbin /usr/sbin
