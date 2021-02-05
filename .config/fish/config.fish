@@ -4,7 +4,7 @@ set fish_greeting
 
 # Application settings
 set -gx GOPATH $HOME/go
-set -x GO111MODULE auto
+set -x GO111MODULE on
 set -gx TERM xterm-256color
 set -gx EDITOR vim
 set -x GPG_TTY tty
@@ -31,6 +31,9 @@ end
 if test -e ~/.config/fish/(uname -n).fish
     source ~/.config/fish/(uname -n).fish
 end
+
+# Source fish secrets
+source ~/.config/fish/secrets.fish
 
 # Enable fzf key bindings
 if type -q fzf
