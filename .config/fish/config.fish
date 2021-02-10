@@ -20,7 +20,7 @@ alias ffuf='ffuf -c -ac -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWeb
 alias bcurl='curl --proxy http://127.0.0.1:8080 -k'
 
 # Configure PATH
-set -gx PATH ~/bin/(uname -n) ~/bin ~/go/bin ~/.local/bin /usr/local/bin /usr/bin /bin /sbin /usr/sbin
+set -gx PATH ~/bin/(uname -n) ~/bin ~/go/bin ~/.local/bin ~/.npm-global/bin /usr/local/bin /usr/bin /bin /sbin /usr/sbin
 
 # Add Ruby user dir to PATH
 if which ruby >/dev/null && which gem >/dev/null
