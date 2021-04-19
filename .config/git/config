@@ -1,4 +1,9 @@
 [user]
 	name = alxjsn
-	email = 3642823+alxjsn@users.noreply.github.com
+	email = alxjsn@sameorigin.org
 	signingkey = 0E5E807514819D4D075EB2991184A5C8F9F91749 
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
