@@ -1,14 +1,17 @@
-# https://github.com/emersion/kanshi/issues/43
-exec_always pkill kanshi; exec kanshi
+# fonts
+set $font_family DejaVu Sans Mono
+set $font_size 11
+font pango:$font_family $font_size
 
-# https://github.com/swaywm/sway/issues/5732
-exec systemctl --user import-environment
+# colors
+set $bg #000000
+set $bga #285577
+set $fg #ffffff
+set $fgi #888888
+set $fgu #333333
 
 # modifier
 set $mod Mod4
-
-# font for window titles
-font xft:Source Code Pro 11
 
 # hide title bars
 default_border pixel 1
@@ -26,7 +29,7 @@ focus_on_window_activation none
 bindsym $mod+Shift+q kill
 
 # start bemenu
-bindsym $mod+d exec bemenu-run -H 25 -m -1
+bindsym $mod+d exec bemenu-run -H 25 -m -1 --fn "$font_family $font_size" --tb "$bga" --tf "$fg" --fb "$bg" --ff "$fg" --hb "$fgu" --hf "$fg"
 
 # change focus
 bindsym $mod+h focus left
@@ -130,12 +133,6 @@ set $secondary_1 DP-4
 set $primary_2 DP-5
 set $secondary_2 DP-6
 
-#output $primary_1 pos 0 0
-#output $secondary_1 pos 2560 0
-
-#output $primary_2 pos 0 0
-#output $secondary_2 pos 2560 0
-
 workspace 1: $label1 output $primary_1 $primary_2
 workspace 2: $label2 output $primary_1 $primary_2
 workspace 3: $label3 output $primary_1 $primary_2
@@ -161,8 +158,8 @@ bindsym $mod+minus scratchpad show
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86MonBrightnessUp exec light -A 10
-bindsym XF86MonBrightnessDown exec light -U 10
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
 
 # spotify controls
 bindsym $mod+slash exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
@@ -174,10 +171,10 @@ bindsym Print exec grim ~/pictures/screenshots/$(date +%s)-full.png
 bindsym $mod+c exec grim -g "$(slurp)" ~/pictures/screenshots/$(date +%s)-select.png
 bindsym $mod+z exec grim -g "$(slurp)" - | wl-copy
 
-# swaylock + swayidle
+# swaylock
 bindsym $mod+x exec swaylock -c 000000
-exec swayidle -w before-sleep 'swaylock -f -c 000000'
 
+# docking behavior for laptop screen
 set $laptop eDP-1
 bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
@@ -195,6 +192,33 @@ input 6127:24814:Lenovo_TrackPoint_Keyboard_II {
    xkb_options caps:swapescape
 }
 
+# status bar
 bar {
-    swaybar_command waybar
+    status_command i3status-rs
+    position top
+	font pango:$font_family, Font Awesome 5 Free $font_size
+	separator_symbol ""
+    colors {
+        background $bg
+        focused_workspace $bga $bga $fg
+        active_workspace $fgu $fgu $fg
+        inactive_workspace $fgu $fgu $fgi
+        urgent_workspace $fgu $fgu $fgi
+	}
+	tray_output none
 }
+
+# window behaviors
+for_window [app_id=mpv] sticky enable
+for_window [app_id="firefox" title="Picture-in-Picture"] floating enable, sticky enable, border none
+for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
+
+# commans on startup
+# https://github.com/emersion/kanshi/issues/43
+exec_always pkill kanshi; exec kanshi
+exec udiskie
+
+# https://github.com/swaywm/sway/issues/5732
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec systemd-notify --ready
