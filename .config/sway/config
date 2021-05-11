@@ -171,8 +171,9 @@ bindsym Print exec grim ~/pictures/screenshots/$(date +%s)-full.png
 bindsym $mod+c exec grim -g "$(slurp)" ~/pictures/screenshots/$(date +%s)-select.png
 bindsym $mod+z exec grim -g "$(slurp)" - | wl-copy
 
-# swaylock
+# swaylock + swayidle
 bindsym $mod+x exec swaylock -c 000000
+exec swayidle -w before-sleep 'swaylock -f -c 000000'
 
 # docking behavior for laptop screen
 set $laptop eDP-1
@@ -213,7 +214,7 @@ for_window [app_id=mpv] sticky enable
 for_window [app_id="firefox" title="Picture-in-Picture"] floating enable, sticky enable, border none
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
 
-# commans on startup
+# commands on startup
 # https://github.com/emersion/kanshi/issues/43
 exec_always pkill kanshi; exec kanshi
 exec udiskie
