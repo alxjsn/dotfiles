@@ -216,7 +216,7 @@ for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
 
 # commands on startup
 # https://github.com/emersion/kanshi/issues/43
-exec_always pkill kanshi; exec kanshi
+exec_always kanshi
 exec udiskie
 
 # https://github.com/swaywm/sway/issues/5732
