@@ -124,28 +124,28 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # define primary and secondary monitors
-set $primary1 DP-3
-set $secondary1 DP-4
+set $primary_1 DP-3
+set $secondary_1 DP-4
 
-set $primary2 DP-5
-set $secondary2 DP-6
+set $primary_2 DP-5
+set $secondary_2 DP-6
 
-#output $primary1 pos 0 0
-#output $secondary1 pos 2560 0
+#output $primary_1 pos 0 0
+#output $secondary_1 pos 2560 0
 
-#output $primary2 pos 0 0
-#output $secondary2 pos 2560 0
+#output $primary_2 pos 0 0
+#output $secondary_2 pos 2560 0
 
-workspace 1: $label1 output $primary1 $primary2
-workspace 2: $label2 output $primary1 $primary2
-workspace 3: $label3 output $primary1 $primary2
-workspace 4: $label4 output $primary1 $primary2
-workspace 5: $label5 output $primary1 $primary2
-workspace 6: $label6 output $secondary1 $secondary2
-workspace 7: $label7 output $secondary1 $secondary2
-workspace 8: $label8 output $secondary1 $secondary2
-workspace 9: $label9 output $secondary1 $secondary2
-workspace 10: $label10 output $secondary1 $secondary2
+workspace 1: $label1 output $primary_1 $primary_2
+workspace 2: $label2 output $primary_1 $primary_2
+workspace 3: $label3 output $primary_1 $primary_2
+workspace 4: $label4 output $primary_1 $primary_2
+workspace 5: $label5 output $primary_1 $primary_2
+workspace 6: $label6 output $secondary_1 $secondary_2
+workspace 7: $label7 output $secondary_1 $secondary_2
+workspace 8: $label8 output $secondary_1 $secondary_2
+workspace 9: $label9 output $secondary_1 $secondary_2
+workspace 10: $label10 output $secondary_1 $secondary_2
 
 # move current workspace between monitors
 bindsym $mod+Control+h move workspace to output left
@@ -177,8 +177,6 @@ bindsym $mod+z exec grim -g "$(slurp)" - | wl-copy
 # swaylock + swayidle
 bindsym $mod+x exec swaylock -c 000000
 exec swayidle -w before-sleep 'swaylock -f -c 000000'
-
-exec kanshi
 
 set $laptop eDP-1
 bindswitch --reload --locked lid:on output $laptop disable
