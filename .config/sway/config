@@ -1,3 +1,9 @@
+# https://github.com/emersion/kanshi/issues/43
+exec_always pkill kanshi; exec kanshi
+
+# https://github.com/swaywm/sway/issues/5732
+exec systemctl --user import-environment
+
 # modifier
 set $mod Mod4
 
@@ -118,21 +124,28 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # define primary and secondary monitors
-set $primary DP-3
-set $secondary DP-4
+set $primary1 DP-3
+set $secondary1 DP-4
 
-output $primary pos 0 0
+set $primary2 DP-5
+set $secondary2 DP-6
 
-workspace 1: $label1 output $primary 
-workspace 2: $label2 output $primary 
-workspace 3: $label3 output $primary 
-workspace 4: $label4 output $primary
-workspace 5: $label5 output $primary 
-workspace 6: $label6 output $secondary 
-workspace 7: $label7 output $secondary 
-workspace 8: $label8 output $secondary
-workspace 9: $label9 output $secondary 
-workspace 10: $label10 output $secondary 
+#output $primary1 pos 0 0
+#output $secondary1 pos 2560 0
+
+#output $primary2 pos 0 0
+#output $secondary2 pos 2560 0
+
+workspace 1: $label1 output $primary1 $primary2
+workspace 2: $label2 output $primary1 $primary2
+workspace 3: $label3 output $primary1 $primary2
+workspace 4: $label4 output $primary1 $primary2
+workspace 5: $label5 output $primary1 $primary2
+workspace 6: $label6 output $secondary1 $secondary2
+workspace 7: $label7 output $secondary1 $secondary2
+workspace 8: $label8 output $secondary1 $secondary2
+workspace 9: $label9 output $secondary1 $secondary2
+workspace 10: $label10 output $secondary1 $secondary2
 
 # move current workspace between monitors
 bindsym $mod+Control+h move workspace to output left
@@ -164,6 +177,8 @@ bindsym $mod+z exec grim -g "$(slurp)" - | wl-copy
 # swaylock + swayidle
 bindsym $mod+x exec swaylock -c 000000
 exec swayidle -w before-sleep 'swaylock -f -c 000000'
+
+exec kanshi
 
 set $laptop eDP-1
 bindswitch --reload --locked lid:on output $laptop disable
