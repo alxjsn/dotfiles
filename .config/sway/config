@@ -133,11 +133,13 @@ set $secondary_1 DP-4
 set $primary_2 DP-5
 set $secondary_2 DP-6
 
-workspace 1: $label1 output $primary_1 $primary_2
-workspace 2: $label2 output $primary_1 $primary_2
-workspace 3: $label3 output $primary_1 $primary_2
-workspace 4: $label4 output $primary_1 $primary_2
-workspace 5: $label5 output $primary_1 $primary_2
+set $primary_3 eDP-1
+
+workspace 1: $label1 output $primary_1 $primary_2 $primary_3
+workspace 2: $label2 output $primary_1 $primary_2 $primary_3
+workspace 3: $label3 output $primary_1 $primary_2 $primary_3
+workspace 4: $label4 output $primary_1 $primary_2 $primary_3
+workspace 5: $label5 output $primary_1 $primary_2 $primary_3
 workspace 6: $label6 output $secondary_1 $secondary_2
 workspace 7: $label7 output $secondary_1 $secondary_2
 workspace 8: $label8 output $secondary_1 $secondary_2
