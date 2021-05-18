@@ -1,9 +1,7 @@
 icons = "awesome5"
 
 [theme]
-name = "plain"
-[theme.overrides]
-separator = ""
+name = "gruvbox-dark"
 
 [[block]]
 block = "memory"
@@ -22,11 +20,16 @@ format = "{1m}"
 [[block]]
 block = "battery"
 interval = 10
-format = "{percentage}% {time}"
+format = "{percentage} {time}"
 
 [[block]]
 block = "sound"
 on_click = "pavucontrol"
+
+[[block]]
+block = "weather"
+format = "{weather} {temp}"
+service = { name = "openweathermap", units = "imperial" }
 
 [[block]]
 block = "time"
