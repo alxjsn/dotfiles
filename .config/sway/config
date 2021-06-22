@@ -215,6 +215,7 @@ bar {
 for_window [app_id=mpv] sticky enable
 for_window [app_id="firefox" title="Picture-in-Picture"] floating enable, sticky enable, border none
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
+for_window [title="zoom.us is sharing your screen."] kill
 
 # commands on startup
 # https://github.com/emersion/kanshi/issues/43
@@ -222,6 +223,7 @@ exec_always kanshi
 exec udiskie
 
 # https://github.com/swaywm/sway/issues/5732
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-exec dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec systemctl --user import-environment
+#exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+#exec dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec systemd-notify --ready
