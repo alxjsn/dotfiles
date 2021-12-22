@@ -131,7 +131,8 @@ set $primary_1 DP-3
 set $secondary_1 DP-4
 
 set $primary_2 DP-5
-set $secondary_2 DP-6
+set $secondary_2 $hdmi DP-6
+set $hdmi HDMI-A-2
 
 set $primary_3 eDP-1
 
@@ -140,11 +141,11 @@ workspace 2: $label2 output $primary_1 $primary_2 $primary_3
 workspace 3: $label3 output $primary_1 $primary_2 $primary_3
 workspace 4: $label4 output $primary_1 $primary_2 $primary_3
 workspace 5: $label5 output $primary_1 $primary_2 $primary_3
-workspace 6: $label6 output $secondary_1 $secondary_2
-workspace 7: $label7 output $secondary_1 $secondary_2
-workspace 8: $label8 output $secondary_1 $secondary_2
-workspace 9: $label9 output $secondary_1 $secondary_2
-workspace 10: $label10 output $secondary_1 $secondary_2
+workspace 6: $label6 output $secondary_1 $secondary_2 $hdmi
+workspace 7: $label7 output $secondary_1 $secondary_2 $hdmi
+workspace 8: $label8 output $secondary_1 $secondary_2 $hdmi
+workspace 9: $label9 output $secondary_1 $secondary_2 $hdmi
+workspace 10: $label10 output $secondary_1 $secondary_2 $hdmi
 
 # move current workspace between monitors
 bindsym $mod+Control+h move workspace to output left
@@ -213,6 +214,8 @@ bar {
 
 # window behaviors
 for_window [app_id=mpv] sticky enable
+for_window [title="Add Emoji Reaction"] floating enable, move position mouse
+for_window [title="Emoji"] floating enable, move position mouse
 for_window [app_id="firefox" title="Picture-in-Picture"] floating enable, sticky enable, border none
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
 for_window [title="zoom.us is sharing your screen."] kill
@@ -224,6 +227,4 @@ exec udiskie
 
 # https://github.com/swaywm/sway/issues/5732
 exec systemctl --user import-environment
-#exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-#exec dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-exec systemd-notify --ready
+#exec systemd-notify --ready
