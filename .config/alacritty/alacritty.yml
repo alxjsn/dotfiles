@@ -73,7 +73,7 @@ bell:
   animation: EaseOutExpo
   duration: 0 # disabled
 
-background_opacity: 1.0
+window_opacity: 1.0
 
 # Mouse bindings
 #
