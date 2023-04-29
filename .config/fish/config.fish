@@ -20,6 +20,8 @@ alias less="less -R"
 alias ffuf='ffuf -c -ac -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4095.0 Safari/537.36"'
 alias bcurl='curl --proxy http://127.0.0.1:8080 -k'
 alias luigi='python -m luigi'
+alias Gcp='git cherry-pick --ff'
+alias Gld='git log --topo-order --stat --patch --pretty=format:"%C(bold yellow)commit %H%C(auto)%d%n%C(bold)Author: %C(blue)%an <%ae> %C(reset)%C(cyan)%ai (%ar)%n%C(bold)Commit: %C(blue)%cn <%ce> %C(reset)%C(cyan)%ci (%cr)%C(reset)%n%+B"'
 
 # Configure PATH
 set -gx PATH ~/bin/(uname -n) ~/bin ~/go/bin ~/.local/bin ~/.npm-global/bin /usr/local/bin /usr/bin /bin /sbin /usr/sbin /usr/bin/core_perl/ /usr/bin/vendor_perl
