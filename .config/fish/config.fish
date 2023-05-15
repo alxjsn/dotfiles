@@ -11,7 +11,9 @@ set -x GPG_TTY tty
 set -gx _JAVA_OPTIONS -Dswing.aatext=TRUE -Dawt.useSystemAAFontSettings=lcd
 
 # Aliases
-alias feh="feh  --sort filename --borderless --auto-zoom --scale-down --auto-rotate --image-bg black --draw-filename"
+alias rcp='rsync -Prx'
+alias m='cd ~/majime'
+alias feh="feh  --sort filename --borderless --auto-zoom --scale-down --image-bg black --draw-filename"
 alias scp="scp -F ~/.ssh/config"
 alias sshfs="sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3"
 alias rg="rg --no-ignore"
@@ -49,4 +51,8 @@ if type -q fzf
     function fish_user_key_bindings
         fzf_key_bindings
     end
+end
+
+if status is-interactive
+  cd $HOME/majime
 end

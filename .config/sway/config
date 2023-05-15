@@ -1,13 +1,13 @@
 # fonts
-set $font_family DejaVu Sans Mono
 set $font_size 11
+set $font_family SF Pro
 font pango:$font_family $font_size
 
 # colors
-set $bg #000000
-set $bga #285577
-set $fg #ffffff
-set $fgi #888888
+set $bg #0d1117
+set $bga #58a6ff
+set $fg #000000
+set $fgi #b3b1ad
 set $fgu #333333
 
 # modifier
@@ -29,7 +29,7 @@ focus_on_window_activation none
 bindsym $mod+Shift+q kill
 
 # start bemenu
-bindsym $mod+d exec bemenu-run -H 25 -m -1 --fn "$font_family $font_size" --tb "$bga" --tf "$fg" --fb "$bg" --ff "$fg" --hb "$fgu" --hf "$fg"
+bindsym $mod+d exec bemenu-run -H 25 -m -1 --fn "$font_family $font_size" --tb "$bga" --tf "$fg" --fb "$bg" --ff "$fgi" --hb "$fgu" --hf "$fgi"
 
 # change focus
 bindsym $mod+h focus left
@@ -71,8 +71,8 @@ bindsym $mod+space focus mode_toggle
 
 # labels
 set $label1 browser
-set $label2 chat
-set $label3 email
+set $label2 browser
+set $label3 chat
 set $label4 notes
 set $label5 misc
 set $label6 burp
@@ -170,8 +170,8 @@ bindsym $mod+period exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.s
 bindsym $mod+comma exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
 # screenshotting
-bindsym Print exec grim ~/pictures/screenshots/$(date +%s)-full.png
-bindsym $mod+c exec grim -g "$(slurp)" ~/pictures/screenshots/$(date +%s)-select.png
+bindsym Print exec grim ~/majime/pictures/screenshots/$(date +%s)-full.png
+bindsym $mod+c exec grim -g "$(slurp)" ~/majime/pictures/screenshots/$(date +%s)-select.png
 bindsym $mod+z exec grim -g "$(slurp)" - | wl-copy
 
 # swaylock + swayidle
@@ -199,7 +199,7 @@ input 6127:24814:Lenovo_TrackPoint_Keyboard_II {
 # status bar
 bar {
     status_command i3status-rs
-    position top
+    position bottom
 	font pango:$font_family $font_size
 	separator_symbol ""
     colors {
@@ -209,7 +209,6 @@ bar {
         inactive_workspace $fgu $fgu $fgi
         urgent_workspace $fgu $fgu $fgi
 	}
-	tray_output none
 }
 
 # window behaviors
@@ -222,7 +221,7 @@ for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
 # commands on startup
 # https://github.com/emersion/kanshi/issues/43
 exec_always kanshi
-exec udiskie
+exec udiskie -s
 
 # https://github.com/swaywm/sway/issues/5732
 exec systemctl --user import-environment

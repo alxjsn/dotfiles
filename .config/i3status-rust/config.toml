@@ -1,8 +1,8 @@
 [theme]
-theme = "gruvbox-dark"
+theme = "dracula"
 
 [icons]
-icons = "awesome5"
+icons = "awesome6"
 
 [[block]]
 block = "memory"

@@ -19,7 +19,9 @@ scrolling:
 draw_bold_text_with_bright_colors: true
 
 font:
-  size: 11.0
+  normal:
+    family: Meslo LG S
+  size: 11
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -34,40 +36,38 @@ font:
     x: 0
     y: 0
 
+# github Alacritty Colors
 colors:
+  # Default colors
   primary:
-    background: '0x333333'
-    foreground: '0xd3d0c8'
-  cursor:
-    text: '0x000000'
-    cursor: '0xffffff'
+    background: '0x0d1117'
+    foreground: '0xb3b1ad'
+
+  # Normal colors
   normal:
-    black:   '0x000000'
-    red:     '0xf2777a'
-    green:   '0xb9ca4a'
-    yellow:  '0xe6c547'
-    blue:    '0x7aa6da'
-    magenta: '0xc397d8'
-    cyan:    '0x70c0ba'
-    white:   '0xffffff'
+    black:   '0x484f58'
+    red:     '0xff7b72'
+    green:   '0x3fb950'
+    yellow:  '0xd29922'
+    blue:    '0x58a6ff'
+    magenta: '0xbc8cff'
+    cyan:    '0x39c5cf'
+    white:   '0xb1bac4'
+
+  # Bright colors
   bright:
-    black:   '0x666666'
-    red:     '0xff3334'
-    green:   '0x9ec400'
-    yellow:  '0xe7c547'
-    blue:    '0x7aa6da'
-    magenta: '0xb77ee0'
-    cyan:    '0x54ced6'
-    white:   '0xffffff'
-  dim:
-    black:   '0x333333'
-    red:     '0xf2777a'
-    green:   '0x99cc99'
-    yellow:  '0xffcc66'
-    blue:    '0x6699cc'
-    magenta: '0xcc99cc'
-    cyan:    '0x66cccc'
-    white:   '0xdddddd'
+    black:   '0x6e7681'
+    red:     '0xffa198'
+    green:   '0x56d364'
+    yellow:  '0xe3b341'
+    blue:    '0x79c0ff'
+    magenta: '0xd2a8ff'
+    cyan:    '0x56d4dd'
+    white:   '0xf0f6fc'
+
+  indexed_colors:
+    - { index: 16, color: '0xd18616' }
+    - { index: 17, color: '0xffa198' }
 
 bell:
   animation: EaseOutExpo
