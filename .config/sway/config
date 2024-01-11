@@ -215,13 +215,14 @@ bar {
 for_window [app_id=mpv] sticky enable
 for_window [title="Add Emoji Reaction"] floating enable, move position mouse
 for_window [title="Emoji"] floating enable, move position mouse
-for_window [app_id="firefox" title="Picture-in-Picture"] floating enable, sticky enable, border none
+for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable, resize set width 384 px height 216 px, sticky on
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
 
 # commands on startup
 # https://github.com/emersion/kanshi/issues/43
 exec_always kanshi
 exec udiskie -s
+exec wlsunset -l 41.881832 -L-87.623177
 
 # https://github.com/swaywm/sway/issues/5732
 exec systemctl --user import-environment
